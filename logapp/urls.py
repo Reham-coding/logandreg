@@ -6,7 +6,4 @@ urlpatterns = [
         path('success', views.success),
         path('log', views.log),
         path('logout', views.logout),
-        path('addmessage', views.addmessage),
-        path('addcomment/<str:id>', views.addcomment),
-
 ]

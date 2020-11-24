@@ -43,21 +43,3 @@ class User (models.Model):
     # def __repr__(self):
     #     return f"<Dojo object: Name = {self.lastname}> , id: {self.id}" 
 
-class Message (models.Model):
-    message = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, related_name= "users", on_delete = models.CASCADE)
-
-    @property
-    def getallcomments(self):
-        return Comment.objects.filter(messagec = self )
-
-class Comment (models.Model):
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    userc = models.ForeignKey(User, related_name= "usersC", on_delete = models.CASCADE)
-    messagec = models.ForeignKey(Message, related_name= "messagesC", on_delete = models.CASCADE)
-
-
